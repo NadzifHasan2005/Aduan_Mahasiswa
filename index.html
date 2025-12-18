@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="/asse/logo.png" type="image/png">
+    <title>Aduan Mahasiswa</title>
+</head>
+<body>
+    <nav>
+        <img src="./asse/logo.png" alt="">
+        <ul>
+            <li><a href="#" class="b">Beranda</a></li>
+            <li><a href="#" class="a">Aduan</a></li>
+            <li><a href="#" class="r">Riwayat</a></li>
+        </ul>
+    </nav>
+
+    <section id="judul">
+        <div class="judul">
+            <p class="judul-header">Campus Care</p>
+            <p class="judul-motto">- Dari Mahasiswa, Untuk Mahasiswa -</p>
+        </div>
+    </section>
+    <section id="pengenalan">
+        <div class="gambar">
+            <img src="./asse/background remove-people.png" alt="">
+        </div>
+        <div class="deskripsi-pengenalan">
+            <p>
+                <span>Campus Care</span> adalah sebuah platform digital yang dirancang sebagai media resmi bagi mahasiswa untuk menyampaikan aduan, keluhan, serta aspirasi terkait layanan dan fasilitas kampus. Website ini menjadi jembatan komunikasi antara mahasiswa dan pihak pengelola kampus agar setiap permasalahan dapat ditangani secara cepat, transparan, dan terstruktur.
+                <br>Melalui <span>Campus Care</span>, mahasiswa dapat mengirimkan aduan secara mudah, memantau status penyelesaian, serta menerima tanggapan langsung dari admin terkait. Dengan sistem ini, kampus diharapkan mampu meningkatkan kualitas layanan dan menciptakan lingkungan akademik yang lebih baik.
+            </p>
+        </div>
+    </section>
+    <div class="form-aduan-judul">
+            <p>Form Aduan Mahasiswa</p>
+        </div>
+    <section id="form-aduan">
+        <div class="deskripsi-form-aduan">
+            <p>
+                Silakan isi formulir di bawah ini untuk mengirimkan aduan atau keluhan Anda. Pastikan untuk memberikan informasi yang jelas dan lengkap agar kami dapat menindaklanjuti aduan Anda dengan tepat.
+            </p>
+        </div>
+        <div class="form-aduan-content">
+            <form method="post" action="index.php">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required>
+                
+                <label for="email">email</label>
+                <input type="email" name="email" id="email" required>
+                
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" id="subject" required>
+                
+                <label for="message">Message</label>
+                <textarea name="message" id="message" required></textarea>
+                
+                <br>
+                
+                <button>Send</button>
+            </form>
+        </div>
+</body>
+</html>
