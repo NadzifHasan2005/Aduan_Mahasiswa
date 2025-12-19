@@ -1,37 +1,42 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+
+$name = $_POST["name"];
+$email = $_POST["email"];
+$nim = $_POST["nim"];
+$message = $_POST["message"];
 
 require "vendor/autoload.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST["name"]);
-    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-    $subject = htmlspecialchars($_POST["subject"]);
-    $message = htmlspecialchars($_POST["message"]);
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 
-    $mail = new PHPMailer(true);
+$mail = new PHPMailer(true);
 
-    try {
-        $mail->isSMTP();
-        $mail->SMTPAuth = true;
-        $mail->Host = "smtp.example.com";
-        $mail->Username = "you@example.com";
-        $mail->Password = "password";
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+// $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
-        $mail->CharSet = "UTF-8";
-        $mail->setFrom("you@example.com", "Website Contact");
-        $mail->addReplyTo($email, $name);
-        $mail->addAddress("nadzif.hasan3work@gmail.com", "Nadzif");
+$mail->isSMTP();
+$mail->SMTPAuth = true;
 
-        $mail->Subject = $subject;
-        $mail->Body = $message;
+$mail->Host = "smtp.gmail.com";
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+$mail->Port =  587;
 
-        $mail->send();
-        echo "Pesan berhasil dikirim";
-    } catch (Exception $e) {
-        echo "Pesan gagal dikirim: {$mail->ErrorInfo}";
-    }
-}
+$mail->Username = "nadzif.hasan3work@gmail.com";
+$mail->Password = "hygj bjog nhtm rvwf";
+
+$mail->setFrom($email, $name);
+$mail->addAddress("nadzif.hasan3work@gmail.com", "nadzif");
+
+$mail->Subject = $subject;
+$mail->Body = 
+    "Pesan dari Form Kontak MBC:\n\n" .
+    "Nama     : $name\n\r" .
+    "NIM      : $nim\n\r" .
+    "Email    : $email\n\n\r" .
+    "Pesan:\n$message";;
+
+$mail->send();
+
+echo "email";
+
+?>

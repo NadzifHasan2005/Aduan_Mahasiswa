@@ -118,6 +118,11 @@ nav ul li a:hover{
     color: var(--primary-color);
 }
 
+
+
+
+
+
 .form-aduan-judul{
     margin: 100px 200px;
 
@@ -132,10 +137,64 @@ nav ul li a:hover{
 
 #form-aduan{
     margin: 50px 200px;
-    padding: 12px;
+    padding: 40px;
     font-family: var(--font-family);
     border-radius: 40px;
     box-shadow: 2px 2px 10px rgba(3, 73, 159, 0.5);
 }
 
+.form-aduan-content{
+    padding: 20px;
+}
 
+.form-aduan-content p{
+    margin-top: 20px;
+
+    font-size: 18px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #044FD0,#02286A);
+    color: transparent;
+    background-clip: text;
+}
+
+.form-aduan-content #name,
+.form-aduan-content #nim{
+    margin-top: 12px;
+    padding: 12px;
+    width: 50%;
+
+    border: none;
+    border-radius: 2px;
+    box-shadow: 2px 2px 10px rgba(3, 73, 159, 0.5);
+    font-family: var(--font-family);
+    font-size: 16px;
+
+}
+.form-aduan-content #date{
+    margin-top: 12px;
+    padding: 12px;  
+
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 10px rgba(3, 73, 159, 0.5);
+    
+    font-family: var(--font-family);
+    font-size: 16px;
+
+}
+.form-aduan-content #butki{
+    border: none;
+    
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 16px;
+
+}
+
+.form-aduan-content textarea{
+    margin-top: 12px;
+    padding-top: 12px;
+    width: 100%;
+    border: none;
+    box-shadow: 2px 2px 10px rgba(3, 73, 159, 0.5);
+}
