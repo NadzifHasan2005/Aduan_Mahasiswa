@@ -45,20 +45,21 @@
         </div>
         <div class="form-aduan-content">
             <form method="post" action="index.php">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" required>
+                <p>Nama</p>
+                <input type="text" name="name" id="name" required><br/>
                 
-                <label for="email">email</label>
-                <input type="email" name="email" id="email" required>
+                <p>Tanggal</p>
+                <input type="date" name="date" id="date" required><br/>
+
+                <p>NIM</p>
+                <input type="text" name="nim" id="nim" required><br/>
                 
-                <label for="subject">Subject</label>
-                <input type="text" name="subject" id="subject" required>
-                
-                <label for="message">Message</label>
-                <textarea name="message" id="message" required></textarea>
-                
+                <p>Bukti</p>
+                <input type="file" name="bukti" id="bukti" required><br/>
+
+                <p>Kendala apa yang dialami?</p>
+                <textarea name="message" id="message" required></textarea><br/>
                 <br>
-                
                 <button>Send</button>
             </form>
         </div>
