@@ -46,6 +46,12 @@ nav ul{
     display: flex;
     gap: 20px;
 }
+.times{
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
 nav ul li a{
     color: white;
     text-decoration: none;
@@ -62,6 +68,47 @@ nav ul li a:hover{
     background-color: linear-gradient(300deg,#4da8da,#1b4ab9);
 }
 
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    nav {
+        justify-content: space-between;
+        padding: 10px 16px;
+        gap: 0;
+    }
+
+    /* tombol menu */
+    .times {
+        display: block;
+        z-index: 1002;
+        transition: transform 0.3s ease;
+    }
+
+    /* sidebar */
+    nav ul {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 240px;
+        background: linear-gradient(300deg,#4da8da,#3b81a7,#295974);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px;
+        gap: 30px;
+        transition: all 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        z-index: 1001;
+        box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+    }
+
+    /* aktif */
+    nav ul.active {
+        left: 0;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+}
 
 
 #judul{
@@ -85,6 +132,18 @@ nav ul li a:hover{
     color: var(--text-color);
     margin-top: 10px;
 }
+@media (max-width: 768px){
+    #judul{
+        padding: 150px 20px;
+    }
+    .judul-header{
+        font-size: 36px;
+    }
+    .judul-motto{
+        font-size: 18px;
+    }
+}
+
 
 
 
@@ -93,6 +152,7 @@ nav ul li a:hover{
     margin: 50px 200px;
     padding: 12px;
     text-align: center;
+    justify-content: center;
     font-family: var(--font-family);
     display: flex;
     border-radius: 40px;
@@ -117,19 +177,45 @@ nav ul li a:hover{
     font-weight: bold;
     color: var(--primary-color);
 }
+@media (max-width: 768px){
+    #pengenalan{
+        margin: 50px;
+        padding: 12px;
+        flex-direction: column;
+        align-items: center;
+    }
+    #pengenalan img{
+        margin-bottom: -12px;
+    }
+    .deskripsi-pengenalan{
+    color: var(--text-color);
+    padding: 20px;
+    text-align: justify;
+    display: flex;
+    align-items: center;   /* teks ke bawah */
+    justify-content: center;
+    font-size: 14px;
+    }
+}
 
 
-
-
-
-
-.form-aduan-judul{
+#form-aduan-judul{
     margin: 100px 200px;
 
     font-size: 32px;
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 20px;
+}
+@media (max-width: 768px){
+    #form-aduan-judul{
+        margin: 100px 50px;
+
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+    }
 }
 
 
@@ -158,13 +244,15 @@ nav ul li a:hover{
 }
 
 .form-aduan-content #name,
-.form-aduan-content #nim{
+.form-aduan-content #nim,
+.form-aduan-content #email,
+.form-aduan-content #kategori{
     margin-top: 12px;
     padding: 12px;
     width: 50%;
 
     border: none;
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: 2px 2px 10px rgba(3, 73, 159, 0.5);
     font-family: var(--font-family);
     font-size: 16px;
@@ -222,6 +310,275 @@ nav ul li a:hover{
 .form-aduan-content button:active{
     background-color: var(--primary-color);
 }
+@media (max-width: 768px){
+    #form-aduan{
+        margin: 50px;
+        padding: 20px;
+    }
+    .form-aduan-content #name,
+    .form-aduan-content #nim,
+    .form-aduan-content #email,
+    .form-aduan-content #kategori,
+    .form-aduan-content textarea{
+        width: 100%;
+    }
+}
+
+
+#rate-judul{
+    margin: 50px 200px;
+    margin-top: 3cm;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+@media (max-width: 768px){
+    #rate-judul{
+        margin: 100px 50px;
+
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+    }
+}
+
+#rate{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 50px 200px;
+    padding: 12px;
+    text-align: center;
+    font-family: var(--font-family);
+}
+
+.orang-1{
+    text-align: justify;
+    padding: 30px 10px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(3, 73, 159, 0.4);
+}
+.orang-1 i{
+    color: rgb(28, 144, 234);
+    margin-bottom: 30px;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+.orang-1 p{
+    padding: 12px;
+}
+.orang-2{
+    text-align: justify;
+    padding: 30px 10px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(3, 73, 159, 0.4);
+}
+.orang-2 i{
+    color: rgb(28, 144, 234);
+    margin-bottom: 30px;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+.orang-2 p{
+    padding: 12px;
+}
+.orang-3{
+    text-align: justify;
+    padding: 30px 10px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(3, 73, 159, 0.4);
+}
+.orang-3 i{
+    color: rgb(28, 144, 234);
+    margin-bottom: 30px;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+.orang-3 p{
+    padding: 12px;
+}
+.orang-1-p{
+    margin-top: 15px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+.orang-2-p{
+    margin-top: 15px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+.orang-3-p{
+    margin-top: 15px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+@media (max-width: 768px){
+    #rate{
+        flex-direction: column;
+        margin: 50px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hr{
+    margin: 50px 200px;
+    border: none;
+    border-top: 2px solid var(--primary-color);
+}
+@media (max-width: 768px){
+    hr{
+        margin: 50px;
+    }
+}
+
+
+
+#footer footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 50px 200px;
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+#footer footer i{
+    padding-top: 20px;
+    font-size: 24px;
+    margin-right: 10px;
+    color: var(--primary-color);
+    cursor: pointer;
+    
+}
+
+#footer footer i:hover{
+    color: var(--secondary-color);
+    transition: 0.4s;
+}
+
+@media (max-width: 768px){
+    #footer footer{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 50px;
+    }
+    #footer footer div{
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#aduan-diterima{
+    text-align: center;
+    padding: 100px 20px;
+    font-family: var(--font-family);
+    background-image:  linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url(./asse/background\ image.png);
+}
+#aduan-diterima h2{
+    font-size: 36px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #044FD0,#02286A);
+    color: transparent;
+    background-clip: text;
+}
+#aduan-diterima p{
+    font-size: 20px;
+    color: var(--text-color);
+    margin-top: 10px;
+}
+#aduan-diterima a{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--background-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+#aduan-diterima button{
+    margin-top: 20px;
+    padding: 12px 24px;
+    
+    border: none;
+    
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
 
 
 
