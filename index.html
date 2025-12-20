@@ -4,18 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="/asse/logo.png" type="image/png">
     <title>Aduan Mahasiswa</title>
 </head>
 <body>
     <nav>
         <img src="./asse/logo.png" alt="">
+        <div class="times" id="menuToggle">☰</div>
         <ul>
             <li><a href="#" class="b">Beranda</a></li>
-            <li><a href="#" class="a">Aduan</a></li>
-            <li><a href="#" class="r">Riwayat</a></li>
+            <li><a href="#form-aduan-judul" class="a">Aduan</a></li>
+            <li><a href="http://127.0.0.1:5501/riwayat.html" class="r">Riwayat</a></li>
         </ul>
     </nav>
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.querySelector("nav ul");
+        const navLinks = document.querySelectorAll("nav ul li a");
+
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+
+            // ganti ikon
+            if (navMenu.classList.contains("active")) {
+                menuToggle.textContent = "✖";
+            } else {
+                menuToggle.textContent = "☰";
+            }
+        });
+        // auto close saat klik menu
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+                menuToggle.textContent = "☰";
+            });
+        });
+    </script>
 
     <section id="judul">
         <div class="judul">
@@ -34,9 +59,9 @@
             </p>
         </div>
     </section>
-    <div class="form-aduan-judul">
-            <p>Form Aduan Mahasiswa</p>
-        </div>
+    <div id="form-aduan-judul">
+        <p>Form Aduan Mahasiswa</p>
+    </div>
     <section id="form-aduan">
         <div class="deskripsi-form-aduan">
             <p>
@@ -44,16 +69,28 @@
             </p>
         </div>
         <div class="form-aduan-content">
-            <form method="post" action="aduan-mahasiswa.great-site.net">
+            <form method="post" action="index.php" enctype="multipart/form-data" id="form">
                 <p>Nama</p>
                 <input type="text" name="name" id="name" required><br/>
-                
-                <p>Tanggal</p>
-                <input type="date" name="date" id="date" required><br/>
 
                 <p>NIM</p>
                 <input type="text" name="nim" id="nim" required><br/>
-                
+
+                <p>Email</p>
+                <input type="email" name="email" id="email" required><br/>
+
+                <p>Tanggal</p>
+                <input type="date" name="date" id="date" required><br/>
+
+
+                <p>Kategori</p>
+                <select name="kategori" id="kategori" required>
+                    <option value="">Pilih Kategori</option>
+                    <option value="fasilitas">Fasilitas</option>
+                    <option value="layanan">Layanan</option>
+                    <option value="akademik">Akademik</option>
+                </select><br/>
+
                 <p>Kendala apa yang dialami?</p>
                 <textarea name="message" id="message" required></textarea><br/>
                 
@@ -61,8 +98,55 @@
                 <input type="file" name="bukti" id="bukti" required><br/>
 
                 <br>
-                <button>Send</button>
+                <button type="submit">Send</button>
             </form>
         </div>
+    </section>
+
+    <div id="rate-judul">
+        <p>Rate</p>
+    </div>
+
+    <section id="rate">
+        <div class="orang-1">
+            <!-- <img src="./asse/orang1.png" alt=""> -->
+            <i class="fa fa-user"></i>
+            <p>"Saya sangat terbantu dengan adanya platform ini. Aduan saya ditanggapi dengan cepat dan solusinya memuaskan."</p>
+            <p class="orang-1-p"><b>- Ani, Mahasiswa Fakultas Ekonomi</b></p>
+        </div>
+        <div class="orang-2">
+            <!-- <img src="./asse/orang2.png" alt=""> -->
+            <i class="fa fa-user"></i>
+            <p>"Campus Care memudahkan saya untuk menyampaikan keluhan terkait fasilitas kampus. Prosesnya sangat transparan."</p>
+            <p class="orang-2-p"><b>- Budi, Mahasiswa Fakultas Teknik</b></p>
+        </div>
+        <div class="orang-3">
+            <!-- <img src="./asse/orang2.png" alt=""> -->
+            <i class="fa fa-user"></i>
+            <p>"Saya merasa didengar sebagai mahasiswa. Aduan saya mengenai layanan administrasi kampus segera ditindaklanjuti."</p>
+            <p class="orang-3-p"><b>- Dina, Mahasiswa Fakultas Ilmu Komputer</b></p>
+        </div>
+    </section>
+
+    
+
+    <hr>
+    <section id="footer">
+        <footer>
+            <div>
+                <p>Author: Muhammad Ramdhan Nadzif Hasan</p>
+                <a href="https://web.facebook.com/profile.php?id=100022343764293" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://x.com/mr_nadzif17" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/muhammad-ramdhan-nadzif-hasan-0156a5211/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/mr_nadzif19/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="mailto:nadzif.hasan3work@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+            </div>
+            
+            <p>© 2025 Campus Care. All rights reserved.</p>
+        </footer>
+    </section>
+
+
+
 </body>
 </html>
