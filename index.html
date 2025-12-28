@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="/asse/logo.png" type="image/png">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init(
+            "dMaW1Xl_ydyxbToC-"
+        );
+    })();
+    </script>
+    <script src="index.js"></script>
     <title>Aduan Mahasiswa</title>
 </head>
 <body>
@@ -18,6 +29,8 @@
             <li><a href="http://127.0.0.1:5501/riwayat.html" class="r">Riwayat</a></li>
         </ul>
     </nav>
+
+
     <script>
         const menuToggle = document.getElementById("menuToggle");
         const navMenu = document.querySelector("nav ul");
@@ -48,6 +61,11 @@
             <p class="judul-motto">- Dari Mahasiswa, Untuk Mahasiswa -</p>
         </div>
     </section>
+
+
+
+
+
     <section id="pengenalan">
         <div class="gambar">
             <img src="./asse/background remove-people.png" alt="">
@@ -59,49 +77,76 @@
             </p>
         </div>
     </section>
+
+
+
+
     <div id="form-aduan-judul">
         <p>Form Aduan Mahasiswa</p>
     </div>
+
+
+
+
     <section id="form-aduan">
         <div class="deskripsi-form-aduan">
             <p>
-                Silakan isi formulir di bawah ini untuk mengirimkan aduan atau keluhan Anda. Pastikan untuk memberikan informasi yang jelas dan lengkap agar kami dapat menindaklanjuti aduan Anda dengan tepat.
+                Silakan isi formulir di bawah ini untuk mengirimkan aduan atau keluhan Anda.
+                Pastikan informasi jelas dan lengkap agar dapat ditindaklanjuti.
             </p>
         </div>
-        <div class="form-aduan-content">
-            <form method="post" action="index.php" enctype="multipart/form-data" id="form">
-                <p>Nama</p>
-                <input type="text" name="name" id="name" required><br/>
 
-                <p>NIM</p>
-                <input type="text" name="nim" id="nim" required><br/>
+        <div class="form-aduan-content">
+            <form id="form">
+                
+                <p>Nama</p>
+                <input type="text" name="name" id="name" required>
+
 
                 <p>Email</p>
-                <input type="email" name="email" id="email" required><br/>
+                <input type="email" name="email" id="email" required>
 
-                <p>Tanggal</p>
-                <input type="date" name="date" id="date" required><br/>
-
-
-                <p>Kategori</p>
-                <select name="kategori" id="kategori" required>
-                    <option value="">Pilih Kategori</option>
-                    <option value="fasilitas">Fasilitas</option>
-                    <option value="layanan">Layanan</option>
-                    <option value="akademik">Akademik</option>
-                </select><br/>
+                <p>Subject</p>
+                <input type="text" name="subject" id="subject" required>
 
                 <p>Kendala apa yang dialami?</p>
-                <textarea name="message" id="message" required></textarea><br/>
-                
-                <p>Bukti</p>
-                <input type="file" name="bukti" id="bukti" required><br/>
+                <textarea name="message" id="message" required></textarea>
 
-                <br>
-                <button type="submit">Send</button>
+                <br><br>
+                <button type="submit" onclick="sendMail()">Send</button>
+
             </form>
         </div>
     </section>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let params = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                message: document.getElementById("message").value,
+
+                // SUBJECT EMAIL
+                subject: "Aduan Website Mahasiswa"
+            };
+
+            emailjs.send("service_u0e0b1b", "template_tyruods", params)
+                .then(function () {
+                    alert("Pesan sudah terkirim");
+                    document.getElementById("form").reset();
+                }, function (error) {
+                    alert("Gagal mengirim pesan");
+                    console.log(error);
+                });
+        });
+    </script>
+
+
+
+
+
+
 
     <div id="rate-judul">
         <p>Rate</p>
