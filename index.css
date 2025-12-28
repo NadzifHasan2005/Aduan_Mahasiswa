@@ -14,13 +14,17 @@
     font-family: var(--font-family);
 }
 
+body{
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 4px;
-    gap: 20cm;
+    gap: 0cm;
     font-family: var(--font-family);
     background: linear-gradient(300deg,#4da8da,#3b81a7,#295974);
     background-size: 180% 180%;
@@ -246,7 +250,7 @@ nav ul li a:hover{
 .form-aduan-content #name,
 .form-aduan-content #nim,
 .form-aduan-content #email,
-.form-aduan-content #kategori{
+.form-aduan-content #subject{
     margin-top: 12px;
     padding: 12px;
     width: 50%;
